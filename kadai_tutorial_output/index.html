@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html> <!-- [html] htmlタグで囲まれた部分が「HTMLによる記述である」ことをブラウザに伝える -->
+  <head> <!-- [head] タイトルや説明文など、Webページの各種設定を記述する -->
+    <title>SocialTech</title>
+    <meta charset="utf-8">
+    <meta name="description" content="SocialTechはEdTech業界のリーディングカンパニーを目指します。">
+     <!-- [viewport] ビューポートとは、PCやスマートフォンで「Webページの画面をどのように表示させるか」という設定のこと -->
+     <!-- [viewport] width=device-width: device-widthを指定して、画面サイズに合わせていっぱいに広げる -->
+     <!-- [viewport] initial-scale=1.0 :等倍（1.0）を指定して、拡大縮小を行わない -->
+     <!-- [viewport] 拡大縮小させたい場合は、initial-scale の数字を大きくしたり小さくしたりすることで設定する -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--　linkタグを記述して、style.cssを読み込む -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body><!-- [body] 実際にブラウザに表示される内容（記事など）を記述する -->
+    <!-- ヘッダー --> <!-- ヘッダーのレイアウトとHTMLタグの組み合わせを確認しておく。 -->
+    <header> <!-- ヘッダーはheaderタグをbodyタグの中に記述することで作成できる。 -->
+      <!-- ロゴ -->
+      <a href="index.html" id="logo">
+        <!-- ロゴ。なるべく相対パスで記載する。 -->
+        <img src="images/logo.png" alt="トップページに戻る">
+      </a>
+
+      <!-- PC用ナビゲーション -->
+      <nav id="nav-pc"> <!-- navタグでナビゲーションを作成。 -->
+        <ul>　<!-- navタグの中にaタグを記述して、6つのナビゲーションメニューを作成 -->
+          <li><a href="mission.html">MISSION</a></li>
+          <li><a href="product.html">PRODUCT</a></li>
+           <!-- タグのhref属性に、 "HTMLファイル名#id属性値" を指定し、リンク先に設定したい要素のidに先ほど指定したid属性値を設定して"ページ内リンク"を作成 -->
+           <!-- こうすることで、リンク先に変移してから指定したidのあるsection要素の場所までスクロールされる。 -->
+           <!-- 実際にスクロールできるかどうかを各セクションページを作ったあとに確認する -->
+           <li><a href="index.html#aboutus">ABOUT US</a></li>
+          <li><a href="index.html#vision">VISION</a></li>
+          <li><a href="index.html#company">COMPANY</a></li>
+          <li><a href="index.html#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+      
+      <!-- MISSIONやPRODUCTなどの各セクションは、PC用レイアウトでは2列の横並びになる。しかしスマートフォンは画面幅が狭いため、縦並びにする -->
+      <!-- スマホ用メニューボタン -->
+       <!-- onclick="document.getElementById('nav-sp').style.display = 'block' : 「nav-spというidを持つ要素（今回の場合はスマートフォン用ナビゲーション）に対し、クリック（タップ）時にdisplay: block;というスタイルを適用する」 -->
+      <button id="menu-sp" onclick="document.getElementById('nav-sp').style.display = 'block'">
+         <!-- 画像なども、なるべく相対パスで記載する。 -->
+        <img src="images/button-menu.png" alt="ナビゲーションを開く">
+      </button>
+
+      <!-- スマホ用ナビゲーション -->
+      <div id="nav-sp">
+         <!-- onclick="document.getElementById('nav-sp').style.display = 'none' : 「nav-spというidを持つ要素（今回の場合はスマートフォン用ナビゲーション）に対し、クリック（タップ）時にdisplay: none;というスタイルを適用する」-->
+        <button id="close" onclick="document.getElementById('nav-sp').style.display = 'none'">
+           <!-- 画像なども、なるべく相対パスで記載する。 -->
+          <img src="images/button-close.png" alt="ナビゲーションを閉じる">
+        </button>
+
+        <nav>
+          <ul>
+            <li>
+              <a id="logo-sp" href="index.html" onclick="document.getElementById('nav-sp').style.display = 'none'"><img src="images/logo-sp.png" alt="トップページに戻る"></a>
+            </li>
+            <li><a class="menu" href="mission.html" onclick="document.getElementById('nav-sp').style.display = 'none'">MISSION</a></li>
+            <li><a class="menu" href="product.html" onclick="document.getElementById('nav-sp').style.display = 'none'">PRODUCT</a></li>
+            <li><a class="menu" href="index.html#aboutus" onclick="document.getElementById('nav-sp').style.display = 'none'">ABOUT US</a></li>
+            <li><a class="menu" href="index.html#vision" onclick="document.getElementById('nav-sp').style.display = 'none'">VISION</a></li>
+            <li><a class="menu" href="index.html#company" onclick="document.getElementById('nav-sp').style.display = 'none'">COMPANY</a></li>
+            <li><a class="menu" href="index.html#contact" onclick="document.getElementById('nav-sp').style.display = 'none'">CONTACT</a></li>
+          </ul>
+        </nav>
+        <div id="sns">
+          <a href="https://www.facebook.com/sejuku2013">
+             <!-- 画像なども、なるべく相対パスで記載する。 -->
+            <img src="images/button-facebook.png" alt="Facebookのリンク">
+          </a>
+          <a href="https://twitter.com/samuraijuku">
+             <!-- 画像なども、なるべく相対パスで記載する。 -->
+            <img src="images/button-twitter.png" alt="Twitterのリンク">
+          </a>
+          <a href="https://www.youtube.com/channel/UCCFOQO5aDK0xXam4cUQXT8g">
+             <!-- 画像なども、なるべく相対パスで記載する。 -->
+            <img src="images/button-youtube.png" alt="YouTubeのリンク">
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main> <!-- [main] 中身がメインコンテンツであることを表す -->
+      <article> <!-- [article] 中身がメインコンテンツであることを表す -->
+        <!-- メインビジュアル -->
+        <section id="main-visual"> <!-- メインビジュアルを表示する場所をsectionタグで確保する -->
+          <div id="main-message"> <!-- 青色の背景となるdivタグ。divタグはidにmain-messageを設定し、あとからCSSでスタイルを適用しやすいようにしておく -->
+            <h1>WORLD PEACE</h1> <!-- メッセージを表示するh1タグ -->
+            <p>IT教育で世界平和を実現する</p> <!-- メッセージを表示するpタグ -->
+          </div>
+           <!-- 画像なども、なるべく相対パスで記載する。 -->
+          <img src="images/index/index-main.png" alt="PCの周りに集まる多国籍の仲間たち">
+        </section>
+
+        <!-- ミッション -->
+        <section id="mission"> <!-- MISSIONというセクションを表示するエリアをsectionタグで確保する -->
+          <h2 class="index-h2">MISSION</h2>
+          <div id="mission-flex">
+            <div>
+              <img id="mission-photo" src="images/index/index-mission.png" alt="屋外のベンチで写真を撮影する多国籍の仲間たち">
+              <h3>世界平和の実現</h3>
+              <p>人類の悲願である世界平和。世界平和を脅かす様々な社会問題を解決するためには、イノベーションをどんどん起こしていく必要があります。SocialTechは、プログラミング教育を通してイノベーターを輩出することで、世界平和という大きなテーマに挑んでいきます。</p>
+            </div>
+            <div>
+              <img id="s2dgs" src="images/index/s2dgs.png" alt="S2DGs">
+              <h3>S2DGsの実現</h3>
+              <p>国連が掲げる「Sustainable Development Goals（持続可能な開発目標）」に含まれる17つのグローバル目標のうち、以下の5つの目標の実現をミッションとしてサービスを展開しています。</p>
+              <a href="mission.html">
+                 <!-- 画像なども、なるべく相対パスで記載する。 -->
+                <img src="images/button-more.png" alt="もっとみる">
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- プロダクト -->
+        <section id="product">
+          <h2 class="index-h2">PRODUCT</h2>
+          <div class="product-flex">
+            <div id="product-left">
+              <div>
+                 <!-- 画像なども、なるべく相対パスで記載する。 -->
+                <img class="product-photo" src="images/index/index-mantoman.png" alt="PCでコードを書く男性">
+                <div class="product-explain">
+                  <span>MAN TO MAN</span>
+                  <h3>プログラミング教育</h3>
+                  <p>2013年より日本で唯一の専属講師によるマンツーマンのプログラミングレッスンを開始。AI/人工知能やウェブデザインの学習も可能です。</p>
+                </div>
+              </div>
+              <div>
+                 <!-- 画像なども、なるべく相対パスで記載する。 -->
+                <img class="product-photo" src="images/index/index-career.png" alt="笑顔で話し合う2人の男性">
+                <div class="product-explain">
+                  <span>CAREER</span>
+                  <h3>人材紹介事業</h3>
+                  <p>エンジニアへの転職に特化した履歴書や職務経歴書のアドバイスや面接対策を行い、豊富な求人の中から最適なキャリア選択を支援します。</p>
+                </div>
+              </div>
+            </div>
+            <div id="product-right">
+              <div>
+                 <!-- 画像なども、なるべく相対パスで記載する。 -->
+                <img class="product-photo" src="images/index/index-media.png" alt="スマートフォンを操作する人">
+                <div class="product-explain">
+                  <span>MEDIA</span>
+                  <h3>プログラミング学習メディア</h3>
+                  <p>月間200万人に読まれる日本最大級のプログラミング学習サイト「SocialTech Blog」やYouTubeチャネルにて学習情報を発信しています。</p>
+                </div>
+              </div>
+              <div>
+                 <!-- 画像なども、なるべく相対パスで記載する。 -->
+                <img class="product-photo" src="images/index/index-b2b.png" alt="講演中の男性とそれを聴く人々">
+                <div class="product-explain">
+                  <span>B2B</span>
+                  <h3>法人研修事業</h3>
+                  <p>社員のスキルアップ・資格取得・福利厚生を目的としたプログラミング法人研修。貴社の事業モデルに合わせた研修内容の提案を致します。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="product-more">
+            <a href="product.html">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/button-more.png" alt="もっとみる">
+            </a>
+          </div>
+        </section>
+
+        <!-- ABOUT US -->
+        <section id="aboutus"> <!-- sectionタグで、ABOUT USのセクションを表示するエリアを確保 -->
+          <h2 class="index-h2">ABOUT US</h2> <!-- h2の見出し（「ABOUT US」）にはh2要素のCSSのスタイルが適用されるので、他のセクションの見出しと共通のスタイルが適用される -->
+          <h3>3つの組織文化</h3>
+          <div> <!-- ectionタグの中にdivタグを記述して、表を表示するエリアも確保 -->
+            <table class="culture-table"> <!-- tableタグで表を作る。枠線は非表示。 -->
+              <tr> <!-- trタグで行を作成 -->
+                <td class="culture-num">01</td> <!-- tdタグでセルを作成 -->
+                <th><span class="culture-en">FLEXIBLE</span><br>フレキシブル</th>
+              </tr>
+              <tr> <!-- trタグで行を作成 -->
+                <td>  <!-- tdタグでセルを作成 -->
+                  <!--空のセル-->
+                </td>
+                <td class="culture-description">リモートワーク、フルフレックス、副業推奨など1人1人が最大限のパフォーマンスを発揮できる柔軟な働き方を促進しています。</td>  <!-- tdタグでセルを作成 -->
+              </tr>
+              <tr> <!-- trタグで行を作成 -->
+                <td class="culture-num">02</td>  <!-- tdタグでセルを作成 -->
+                <th><span class="culture-en">TEAL</span><br>ティール</th>
+              </tr>
+              <tr> <!-- trタグで行を作成 -->
+                <td>  <!-- tdタグでセルを作成 -->
+                  <!--空のセル-->
+                </td>
+                <td class="culture-description">会社全体を1つの生命体として捉え、お互いが深く結びついた一階層型 組織として部署・チーム関係なく課題解決をできる組織を目指しています。</td>  <!-- tdタグでセルを作成 -->
+              </tr>
+              <tr> <!-- trタグで行を作成 -->
+                <td class="culture-num">03</td>  <!-- tdタグでセルを作成 -->
+                <th><span class="culture-en">SELF REALIZATION</span><br>自己実現</th>
+              </tr>
+              <tr> <!-- trタグで行を作成 -->
+                <td>  <!-- tdタグでセルを作成 -->
+                  <!--空のセル-->
+                </td> 
+                <td class="culture-description">クオーター毎に経営・部署・個人ごとにOKRを設定し個人のキャリアと 会社の目指す方向の軌道修正を行っております。</td>  <!-- tdタグでセルを作成 -->
+              </tr>
+            </table>
+             <!-- 画像なども、なるべく相対パスで記載する。 -->
+            <img class="culture-img" src="images/index/index-aboutus1.png" alt="笑顔で話し合う2人の女性">
+          </div>
+           <!-- 画像なども、なるべく相対パスで記載する。 -->
+          <img class="culture-img2" src="images/index/index-aboutus2.png" alt="笑顔で話し合う3人の男女"> <!-- 2枚目の画像は表と1枚目の画像の下に表示させるため、div要素の外側に記述 -->
+        </section>
+
+        <!-- VISION -->
+        <section id="vision"> <!-- sectionタグで、VISIONのセクションを表示するエリアを確保 -->
+          <h2 class="index-h2">VISION</h2> <!-- sectionタグの中にセクション全体の見出しやdivタグを記述して、さらにエリアを分ける -->
+          <h3>7つの行動指針</h3>
+          <div> <!-- divタグで「行動指針」の画像やテキストを一つ一つグループ化 -->
+             <!-- 7つすべての「行動指針」に共通のスタイルを適用できるように、これらのdiv要素にはvision-boxというclassを設定 -->
+            <div class="vision-box">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/index/vision-01.png" alt="01">
+              <div>
+                <h4>CUSTOMER IS BOSS</h4>
+                <h5>あなたのボスは顧客である</h5>
+                <p>私たちは常にお客様志向で行動し、お客様を喜ばせ、期待値を超えた感動を提供することを大切にします。</p>
+              </div>
+            </div>
+             <!-- 1つ目の「行動指針」と構造（タグの組み合わせ）は一緒で、画像のパスやテキストの内容を書き換えるだけ -->
+            <div class="vision-box">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/index/vision-02.png" alt="02">
+              <div>
+                <h4>MOVE FAST</h4>
+                <h5>早さは価値</h5>
+                <p>素早く試し、素早く実行することで新しい気付きや発見を見つけていきます。</p>
+              </div>
+            </div>
+            <div class="vision-box">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/index/vision-03.png" alt="03">
+              <div>
+                <h4>IMPACT DRIVEN</h4>
+                <h5>作業するのは仕事ではない</h5>
+                <p>問題から考え、成果とは何かを考え続け、インパクトのある成果を生むために仕事をしていきます。</p>
+              </div>
+            </div>
+            <div class="vision-box">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/index/vision-04.png" alt="04">
+              <div>
+                <h4>SAVE TIME, SAVE MONEY</h4>
+                <h5>浪費は命取りになる</h5>
+                <p>少ないコストでできる方法を考えます。お金だけでなく、人の時間をいただいている自覚を持ち、あらゆるリソースを有意義に活用します。</p>
+              </div>
+            </div>
+            <div class="vision-box">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/index/vision-05.png" alt="05">
+              <div>
+                <h4>BE GENTLE</h4>
+                <h5>「優しくない」をなくす</h5>
+                <p>社会をすこしずつ優しくしていきます。自分、家族、同僚、顧客、他人、全ての人に優しくいることを心がけます。</p>
+              </div>
+            </div>
+            <div class="vision-box">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/index/vision-06.png" alt="06">
+              <div>
+                <h4>ABC</h4>
+                <h5>当たり前の事をバカにせずにちゃんとやる</h5>
+                <p>礼儀、健康、嘘をつかない。当たり前の事が出来ているかを常に自問し、当たり前の基準を高く持って行動します。</p>
+              </div>
+            </div>
+            <div class="vision-box">
+               <!-- 画像なども、なるべく相対パスで記載する。 -->
+              <img src="images/index/vision-07.png" alt="07">
+              <div>
+                <h4>ZTI</h4>
+                <h5>絶対的当事者意識</h5>
+                <p>役職や役割に応じた相対的な当事者意識ではなく、自身の身で起こることすべてに対する絶対的な当事者意識を持ちます。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPANY -->
+        <section id="company"> <!-- sectionタグで、COMPANYのセクションを表示するエリアを確保 -->
+          <h2 class="index-h2">COMPANY</h2>
+          <h3>会社概要</h3>
+          <table id="company-table">
+            <tr>
+              <th class="tableheader tableheader-first">会社名</th>
+              <td class="cell cell-first">株式会社SocialTech</td>
+            </tr>
+            <tr>
+              <th class="tableheader">所在地</th>
+              <td class="cell">〒101-0022 東京都千代田区神田練塀町300番地 住友不動産秋葉原駅前ビル5F<br>JR「秋葉原駅」より徒歩1分</td>
+            </tr>
+            <tr>
+              <th class="tableheader">代表者</th>
+              <td class="cell">代表取締役 田中 太郎</td>
+            </tr>
+            <tr>
+              <th class="tableheader">設立</th>
+              <td class="cell">2015年3月19日</td>
+            </tr>
+          </table>
+           <!-- iframeタグを使って会社周辺の地図を埋め込む -->
+           <!-- src属性では、地図画像のURLを指定 -->
+           <!-- style属性では、地図画像の枠線を0に指定 -->
+           <!-- allowfullscreen属性では、全画面モードを許可する指定。 -->
+           <!-- loading属性では、ブラウザに地図が表示された時に地図画像を読み込む指定 -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.0688551336807!2d139.7720776771055!3d35.69992317258124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188fee13660e23%3A0x77137876edf742ac!2z5L2P5Y-L5LiN5YuV55Sj56eL6JGJ5Y6f6aeF5YmN44OT44Or!5e0!3m2!1sja!2sjp!4v1704858013291!5m2!1sja!2sjp" style="border: 0" allowfullscreen="auto" loading="lazy"></iframe>
+        </section>
+
+        <!-- お問い合わせフォーム -->
+         <!-- 送信機能はバックエンド言語でコーディングする必要があるため、今回は送信機能の実装は無し。 -->
+        <section id="contact"> <!-- sectionタグで、CONTACTのセクションを表示するエリアを確保 -->
+          <h2 class="index-h2">CONTACT</h2>
+          <h3>お問い合わせ</h3>
+          <form> <!-- sectionタグの中にformタグを記述して、各種フォームを作成する -->
+            <div>
+              <div class="contact-heading">
+                 <!-- 各フォームはlabelタグでラベル（項目名）を表示 -->
+                 <!-- 入力が必要な項目にはspanタグで「必須」という文字を表示 -->
+                <label class="contact-label">お名前<span class="contact-span">必須</span></label>
+              </div>
+              <div>
+                 <!-- テキストボックス（input type="text"）で入力欄を作成 -->
+                <input type="text" name="name" placeholder="入力してください" class="contact-textbox">
+              </div>
+            </div>
+            <div>
+              <div class="contact-heading">
+                 <!-- 入力が必要な項目にはspanタグで「必須」という文字を表示 -->
+                <label class="contact-label">フリガナ<span class="contact-span">必須</span></label>
+              </div>
+              <div>
+                 <!-- テキストボックス（input type="text"）で入力欄を作成 -->
+                <input type="text" name="hurigana" placeholder="入力してください" class="contact-textbox">
+              </div>
+            </div>
+            <div>
+              <div class="contact-heading">
+                 <!-- 入力が必要な項目にはspanタグで「必須」という文字を表示 -->
+                <label class="contact-label">メールアドレス<span class="contact-span">必須</span></label>
+              </div>
+              <div>
+                 <!-- テキストボックス（input type="text"）で入力欄を作成 -->
+                <input type="text" name="email" placeholder="入力してください" class="contact-textbox">
+              </div>
+            </div>
+            <div>
+              <div class="contact-heading">
+                 <!-- 各フォームはlabelタグでラベル（項目名）を表示 -->
+                <label class="contact-label">電話番号</label>
+              </div>
+              <div>
+                 <!-- テキストボックス（input type="text"）で入力欄を作成 -->
+                <input type="text" name="tel" placeholder="入力してください" class="contact-textbox">
+              </div>
+            </div>
+            <div>
+              <div class="contact-heading">
+                 <!-- 各フォームはlabelタグでラベル（項目名）を表示 -->
+                 <!-- 入力が必要な項目にはspanタグで「必須」という文字を表示 -->
+                <label class="contact-label">お問い合わせ内容<span class="contact-span">必須</span></label>
+              </div>
+              <div>
+                 <!-- テキストボックスが未入力のときに「入力してください」と表示されるように、プレースホルダーを設定 -->
+                 <!-- 「お問い合わせ内容」の入力欄をテキストエリア（textarea）で作成 -->
+                 <!-- テキストエリアはテキストボックスとは異なり、複数行の文章を入力できる -->
+                 <textarea class="contact-textarea" placeholder="入力してください" name="message"></textarea>
+              </div>
+            </div>
+            <div>
+              <div class="contact-heading">
+                 <!-- 各フォームはlabelタグでラベル（項目名）を表示 -->
+                 <!-- 入力が必要な項目にはspanタグで「必須」という文字を表示 -->
+                <label class="contact-label">ご希望の連絡先<span class="contact-span">必須</span></label>
+              </div>
+               <!-- 連絡先を選択するラジオボタン（input type="radio"）を作成 -->
+              <div><input class="radiobutton" type="radio" value="tel" name="contact" checked><label>お電話</label> <input class="radiobutton" type="radio" value="mail" name="contact"><label>メール</label> <input class="radiobutton" type="radio" value="both" name="contact"><label>どちらでも</label></div>
+            </div>
+            <div>
+              <!-- 「個人情報の取り扱い」に対して同意を求めるチェックボックス（input type="checkbox"）を作成 -->
+              <div class="contact-heading">
+                <label class="contact-label">個人情報の取り扱い</label>
+              </div>
+              <div>
+                 <!-- 「個人情報の取り扱い」は長文なので、detailsタグを使って表示・非表示を切り替えられるように -->
+                 <!-- detailsタグで作成された三角マークをクリックして、詳細の表示・非表示が切り替えられることを確認する -->
+                <details>
+                  <summary>お問い合わせフォームの個人情報の取り扱いについて</summary>
+                  <div>
+                    <dl>
+                      <dt>１．組織の名称又は氏名</dt>
+                      <dd>株式会社SocialTech</dd>
+                      <dt>２．個人情報保護管理者（若しくはその代理人）の氏名又は職名、所属及び連絡先</dt>
+                      <dd>
+                        <p>鈴木 一郎 コーポレート部</p>
+                        <p>メールアドレス：samurai@example.com</p>
+                        <p>TEL：03-1234-5678</p>
+                      </dd>
+                      <dt>３．個人情報の利用目的</dt>
+                      <dd>
+                        <ul>
+                          <li>・本サービス及び本サービスに関連する情報の提供又はそれらに関する連絡のため</li>
+                          <li>・ユーザーの本人確認のため</li>
+                          <li>・当社サービスのご案内のため</li>
+                          <li>・当社の商品等の広告または宣伝（電子メールによるものを含むものとします。）</li>
+                        </ul>
+                      </dd>
+                      <dt>４．個人情報の取り扱い業務の委託</dt>
+                      <dd>個人情報の取扱業務の全部または一部を外部に業務委託する場合があります。その際、弊社は、個人情報を適切に保護できる管理体制を敷き実行していることを条件として委託先を厳選したうえで、機密保持契約を委託先と締結し、お客様の個人情報を厳密に管理させます。</dd>
+                      <dt>５．個人情報の開示等の請求</dt>
+                      <dd>
+                        お客様は、弊社に対してご自身の個人情報の開示等（利用目的の通知、開示、内容の訂正・追加・削除、利用の停止または消去、第三者への提供の停止）に関して、当社問合わせ窓口に申し出ることができます。<br>
+                        その際、弊社はお客様ご本人を確認させていただいたうえで、合理的な期間内に対応いたします。<br>
+                        なお、個人情報に関する弊社問合わせ先は、次の通りです。
+                      </dd>
+                      <dd>
+                        <p>株式会社SocialTech　個人情報問合せ窓口</p>
+                        <p>〒150-0043　東京都千代田区神田練塀町300番地 住友不動産秋葉原駅前ビル5F</p>
+                        <p>メールアドレス：samurai@example.com　TEL：03-1234-5678</p>
+                      </dd>
+
+                      <dt>６．個人情報を提供されることの任意性について</dt>
+                      <dd>お客様がご自身の個人情報を弊社に提供されるか否かは、お客様のご判断によりますが、もしご提供されない場合には、適切なサービスが提供できない場合がありますので予めご了承ください。</dd>
+                    </dl>
+                  </div>
+                </details>
+                 <!-- 「個人情報の取り扱い」に対して同意を求めるチェックボックス（input type="checkbox"） -->
+                <input type="checkbox" name="agree">
+                <span>個人情報の取り扱いについてご同意いただける場合は、チェックをしてください。</span>
+              </div>
+            </div>
+             <!-- 送信ボタンを画像で作成 --> 
+             <!-- input type="submit"で送信ボタンを作成できるが、input type="image"にすれば画像で送信ボタンを作成できる -->
+             <!-- input type="image" の場合は、value="Submit"を削除して、src属性に画像のパスを指定する -->
+             <!-- 画像なども、なるべく相対パスで記載する。 -->
+            <input type="image" src="images/button-submit.png" alt="送信する">
+          </form>
+        </section>
+      </article>
+    </main>
+    
+    <!-- フッターは記事ではないのでarticleタグの外に記述 -->
+    <footer> <!-- footerタグを記述してフッターを作成し、その中にdivタグとロゴを表示するためのimgタグを記述 -->
+      <div id="footer-logo">
+        <img src="images/logo-sp.png" alt="SocialTech">
+      </div>
+      <div id="footer-link"> <!-- ハイパーリンク全体をグループ化するdivタグには、あとからスタイルを適用できるようにfooter-linkというidを設定 -->
+        <a href="mission.html">MISSION</a>
+        <a href="product.html">PRODUCT</a>
+        <a href="index.html#aboutus">ABOUT US</a>
+        <a href="index.html#vision">VISION</a>
+        <a href="index.html#company">COMPANY</a>
+        <a href="index.html#contact">CONTACT</a>
+      </div>
+      <div id="sns-footer">
+        <div class="sns-btns">
+           <!-- Twitterなど、SNSのリンクボタンを作成 -->
+           <!-- SNSのアイコン画像をimgタグで表示し、それをaタグで囲ってハイパーリンクを設定 -->
+          <a href="https://www.facebook.com/sejuku2013"><img src="images/button-facebook.png" alt="Facebookのリンク"></a>
+          <a href="https://twitter.com/samuraijuku"><img src="images/button-twitter.png" alt="Twitterのリンク"></a>
+          <a href="https://www.youtube.com/channel/UCCFOQO5aDK0xXam4cUQXT8g"><img src="images/button-youtube.png" alt="YouTubeのリンク"></a>
+        </div>
+         <!-- pタグでコピーライトを作 -->
+         <!-- スタイルを適用できるように、copyrightというidを設定 -->
+         <!-- 全角のコピーライトの記号（cを丸で囲んだ記号）は機種依存文字のため使えない。その代わりに&copy;という文字実体参照で記述 -->
+         <!-- ※ 機種依存文字、文字実体参照-->
+        <p id="copyright">&copy;2021 SocialTech, Inc. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
